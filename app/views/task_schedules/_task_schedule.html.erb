@@ -5,4 +5,25 @@
   <td>
     <%= task_schedule.due_date %>
   </td>
+  <td>
+
+<%= 
+  link_to(
+    "Completed",
+    tasks_path(
+      task:{
+      name: task_schedule.name, 
+      id: task_schedule.id,
+      due_date: task_schedule.due_date, 
+      completed: 't',
+      user_id: task_schedule.user_id,
+    }),
+    remote: true,
+    method: :post,
+    data: { type: 'json' }
+  )
+%>
+
+  </td>
+
 </tr>

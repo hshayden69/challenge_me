@@ -20,31 +20,35 @@
         <th>
           Due Date
         </th>
+
+        <th>
+          Task Completed
+        </th>
+
       </thead>
       <tbody>
-          <%= render @user.task_schedules %>
+        <%= render @user.task_schedules %>
       </tbody>
   </table>
 </p>
 
 <p>
   <strong>Tasks</strong>
-  <table>
-      <thead>
-        <th>
-          Name
-        </th>
-        <th>
-          Complete
-        </th>
-        <th>
-          Due Date
-        </th>
-      </thead>
-      <tbody>
-          <%= render @user.tasks %>
-      </tbody>
-  </table>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Complete</th>
+    <th>Completed Date</th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.name %></td>
+    <td><%= task.completed %></td>
+    <td><%= task.due_date %></td>
+  </tr>
+<% end %>
+</table>
 </p>
 
 
